@@ -3,3 +3,23 @@ service:
   identifier: serremotenondef
   orgIdentifier: Ng_Pipelines_K8s_Organisations
   projectIdentifier: DoNotDelete_DelegateSelectors_Ramya
+  serviceDefinition:
+    spec:
+      release:
+        name: release-<+INFRA_KEY_SHORT_ID>
+      artifacts:
+        primary:
+          primaryArtifactRef: <+input>
+          sources:
+            - identifier: artifact
+              spec:
+                connectorRef: org.GCRConnectorForAutomationTest
+                repositoryType: docker
+                project: qa-target
+                region: us-east1
+                repositoryName: automation-todolist
+                package: automation-todolist
+                version: <+input>
+                digest: ""
+              type: GoogleArtifactRegistry
+    type: Kubernetes
