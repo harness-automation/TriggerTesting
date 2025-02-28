@@ -1,0 +1,60 @@
+pipeline:
+  name: rempipremserenv
+  identifier: rempipremserenv
+  projectIdentifier: DoNotDelete_DelegateSelectors_Ramya
+  orgIdentifier: Ng_Pipelines_K8s_Organisations
+  tags: {}
+  stages:
+    - stage:
+        name: depl
+        identifier: depl
+        description: ""
+        type: Deployment
+        spec:
+          deploymentType: Kubernetes
+          service:
+            serviceRef: serremotenondef
+            serviceInputs:
+              serviceDefinition:
+                type: Kubernetes
+                spec:
+                  artifacts:
+                    primary:
+                      primaryArtifactRef: <+input>
+                      sources: <+input>
+            gitBranch: ramya-br1
+          environment:
+            environmentRef: envremotenondefbranch2
+            gitBranch: ramya-br2
+            deployToAll: false
+            infrastructureDefinitions:
+              - identifier: infraremote
+                inputs:
+                  identifier: infraremote
+                  type: KubernetesDirect
+                  spec:
+                    namespace: <+input>
+          execution:
+            steps:
+              - step:
+                  type: K8sRollingDeploy
+                  name: K8sRollingDeploy_1
+                  identifier: K8sRollingDeploy_1
+                  spec:
+                    skipDryRun: false
+                    pruningEnabled: false
+                  timeout: 10m
+                  failureStrategies:
+                    - onFailure:
+                        errors:
+                          - AllErrors
+                        action:
+                          type: Ignore
+            rollbackSteps: []
+        tags: {}
+        failureStrategies:
+          - onFailure:
+              errors:
+                - AllErrors
+              action:
+                type: StageRollback
