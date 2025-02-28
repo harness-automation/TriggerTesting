@@ -1,0 +1,13 @@
+infrastructureDefinition:
+  name: infraremote
+  identifier: infraremote
+  orgIdentifier: Ng_Pipelines_K8s_Organisations
+  projectIdentifier: DoNotDelete_DelegateSelectors_Ramya
+  environmentRef: envremotenondefbranch2
+  deploymentType: Kubernetes
+  type: KubernetesDirect
+  spec:
+    connectorRef: org.KubernetesConnectorForAutomationTest
+    namespace: <+input>
+    releaseName: release-<+INFRA_KEY_SHORT_ID>
+  allowSimultaneousDeployments: false
