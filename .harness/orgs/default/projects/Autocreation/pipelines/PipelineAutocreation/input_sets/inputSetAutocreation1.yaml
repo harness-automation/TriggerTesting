@@ -1,0 +1,19 @@
+inputSet:
+  name: inputSetAutocreation1
+  identifier: inputSetAutocreation1
+  orgIdentifier: default
+  projectIdentifier: Autocreation
+  pipeline:
+    identifier: PipelineAutocreation
+    stages:
+      - stage:
+          identifier: s12
+          type: Custom
+          spec:
+            execution:
+              steps:
+                - step:
+                    identifier: Wait_1
+                    type: Wait
+                    spec:
+                      duration: 10m
