@@ -1,0 +1,22 @@
+pipeline:
+  name: PipelineAutocreation1
+  identifier: PipelineAutocreation1
+  projectIdentifier: Autocreation
+  orgIdentifier: default
+  tags: {}
+  stages:
+    - stage:
+        name: s12
+        identifier: s12
+        description: ""
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step:
+                  type: Wait
+                  name: Wait_1
+                  identifier: Wait_1
+                  spec:
+                    duration: <+input>
+        tags: {}
