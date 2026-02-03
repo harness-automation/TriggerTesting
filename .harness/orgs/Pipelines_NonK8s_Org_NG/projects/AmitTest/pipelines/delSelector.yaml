@@ -1,0 +1,22 @@
+pipeline:
+  name: delSelector
+  identifier: delSelector
+  tags: {}
+  projectIdentifier: AmitTest
+  orgIdentifier: Pipelines_NonK8s_Org_NG
+  stages:
+    - stage:
+        name: s132424
+        identifier: s132424
+        description: ""
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step:
+                  type: FilesUpload
+                  name: FilesUpload_1
+                  identifier: FilesUpload_1
+                  spec: {}
+                  timeout: 30m
+        tags: {}
