@@ -1,0 +1,14 @@
+template:
+  name: Test
+  identifier: Test
+  versionLabel: V1
+  type: MonitoredService
+  projectIdentifier: Pankaj
+  orgIdentifier: default
+  tags: {}
+  spec:
+    serviceRef: <+input>
+    environmentRef: <+input>
+    type: Application
+    sources:
+      healthSources: []
